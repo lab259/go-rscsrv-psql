@@ -32,11 +32,15 @@ type Configuration struct {
 	SSLCert     string        `yaml:"ssl_cert"`
 	SSLKey      string        `yaml:"ssl_key"`
 	SSLRootCert string        `yaml:"ssl_root_cert"`
+	MaxPoolSize int           `yaml:"max_pool_size"`
 }
 
 func (config Configuration) formatParameter(name, value string) string {
 	safeValue := strings.Replace(value, "'", `\'`, -1)
-	return fmt.Sprintf("%s='%s'", name, safeValue)
+	if strings.Contains(safeValue, " ") {
+		return fmt.Sprintf("%s='%s'", name, safeValue)
+	}
+	return fmt.Sprintf("%s=%s", name, safeValue)
 }
 
 func (config Configuration) ConnectionString() string {
@@ -126,6 +130,10 @@ func (srv *PsqlService) Start() error {
 	db, err := sql.Open("postgres", srv.Configuration.ConnectionString())
 	if err != nil {
 		return err
+	}
+
+	if srv.Configuration.MaxPoolSize > 0 {
+		db.SetMaxOpenConns(srv.Configuration.MaxPoolSize)
 	}
 
 	if err := db.Ping(); err != nil {
