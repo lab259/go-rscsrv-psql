@@ -1,6 +1,4 @@
-# go-package-boilerplate [![CircleCI](https://circleci.com/gh/lab259/go-package-boilerplate.svg?style=shield&circle-token=224f68e222b4a6abeb01f2d0dda3b4cf264b806e)](https://circleci.com/gh/lab259/go-package-boilerplate)
-
-> See here [how to create a repository from a template](https://help.github.com/en/articles/creating-a-repository-from-a-template)
+# go-rscsrv-psql [![CircleCI](https://circleci.com/gh/lab259/go-rscsrv-psql.svg?style=shield)](https://circleci.com/gh/lab259/go-rscsrv-psql) [![Go Report Card](https://goreportcard.com/badge/github.com/lab259/go-rscsrv-psql?style=shield)](https://goreportcard.com/report/github.com/lab259/go-rscsrv-psql) [![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=shield)](http://godoc.org/github.com/lab259/go-rscsrv-psql) [![Release](https://img.shields.io/github/release/lab259/go-rscsrv-psql.svg?style=shield)](https://github.com/lab259/go-rscsrv-psql/releases/latest)
 
 ## Getting Started
 
@@ -21,26 +19,26 @@ For start developing you must create a `GOPATH` structure:
 |---- src
 |------ github.com
 |-------- lab259
-|---------- go-package-boilerplate <- Here is where you will clone this repository.
+|---------- go-rscsrv-psql <- Here is where you will clone this repository.
 ```
 
 Use the following command:
 
 ```bash
-mkdir -p src/github.com/lab259/go-package-boilerplate && git clone git@github.com:lab259/go-package-boilerplate.git src/github.com/lab259/go-package-boilerplate
+mkdir -p src/github.com/lab259/go-rscsrv-psql && git clone git@github.com:lab259/go-rscsrv-psql.git src/github.com/lab259/go-rscsrv-psql
 ```
 
 Now, the dependencies must be installed.
 
 ```
-cd src/github.com/lab259/go-package-boilerplate && make dep-ensure
+cd src/github.com/lab259/go-rscsrv-psql && make dep-ensure
 ```
 
 :wink: Finally, you are done to start developing.
 
 ### Running tests
 
-In the `src/github.com/lab259/go-package-boilerplate` directory, execute:
+In the `src/github.com/lab259/go-rscsrv-psql` directory, execute:
 
 ```bash
 make test
