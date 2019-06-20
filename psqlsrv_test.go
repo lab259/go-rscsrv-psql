@@ -1,4 +1,4 @@
-package boilerplate_test
+package psqlsrv_test
 
 import (
 	"log"

@@ -32,6 +32,34 @@
   revision = "3be045cc503344c551700381369b71cf18ca80cf"
 
 [[projects]]
+  branch = "master"
+  digest = "1:53c50f6450248904bc393b85806bc422a3ded968c9ccaa5298c6de8e077f86bb"
+  name = "github.com/lab259/go-package-boilerplate"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "fe5e9a97781db8e56dd1a1647271b9bf00a9f279"
+
+[[projects]]
+  digest = "1:b7a7153f385c5abb03409c8f350c874ad913fa73dfdabc012c88b4e2b582427c"
+  name = "github.com/lab259/go-rscsrv"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "db5ebd4d519ae7f3096f1b13c21097305b11fffa"
+  version = "v0.1.0"
+
+[[projects]]
+  digest = "1:bdd53b87de8185da386bae179c84d4848854c6870bacacf6a154fe63e2e750f7"
+  name = "github.com/lib/pq"
+  packages = [
+    ".",
+    "oid",
+    "scram",
+  ]
+  pruneopts = "UT"
+  revision = "bc6a3c0594130b1e34005880bc600b6d3f49fa7f"
+  version = "v1.1.1"
+
+[[projects]]
   digest = "1:c658e84ad3916da105a761660dcaeb01e63416c8ec7bc62256a9b411a05fcd67"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
@@ -171,6 +199,9 @@
   analyzer-version = 1
   input-imports = [
     "github.com/jamillosantos/macchiato",
+    "github.com/lab259/go-package-boilerplate",
+    "github.com/lab259/go-rscsrv",
+    "github.com/lib/pq",
     "github.com/onsi/ginkgo",
     "github.com/onsi/ginkgo/reporters",
     "github.com/onsi/gomega",

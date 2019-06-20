@@ -1,4 +1,4 @@
-package boilerplate
+package psqlsrv
 
 // Sum returns `a` plus `b`
 func Sum(a, b int) int {
