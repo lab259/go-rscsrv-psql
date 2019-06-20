@@ -154,3 +154,11 @@ func (srv *PsqlService) Ping() error {
 
 	return srv.db.Ping()
 }
+
+func (srv *PsqlService) DB() (*sql.DB, error) {
+	if !srv.running {
+		return nil, rscsrv.ErrServiceNotRunning
+	}
+
+	return srv.db, nil
+}
