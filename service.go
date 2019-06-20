@@ -65,7 +65,11 @@ func (config Configuration) ConnectionString() string {
 		parameters = append(parameters, config.formatParameter("port", strconv.Itoa(config.Port)))
 	}
 
-	parameters = append(parameters, config.formatParameter("sslmode", string(config.SSLMode)))
+	if config.SSLMode == SSLModeDisable {
+		parameters = append(parameters, config.formatParameter("sslmode", "disable"))
+	} else {
+		parameters = append(parameters, config.formatParameter("sslmode", string(config.SSLMode)))
+	}
 
 	if config.Timeout > 0 {
 		parameters = append(parameters, config.formatParameter("connect_timeout", strconv.Itoa(int(config.Timeout/time.Second))))

@@ -32,14 +32,6 @@
   revision = "3be045cc503344c551700381369b71cf18ca80cf"
 
 [[projects]]
-  branch = "master"
-  digest = "1:53c50f6450248904bc393b85806bc422a3ded968c9ccaa5298c6de8e077f86bb"
-  name = "github.com/lab259/go-package-boilerplate"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "fe5e9a97781db8e56dd1a1647271b9bf00a9f279"
-
-[[projects]]
   digest = "1:b7a7153f385c5abb03409c8f350c874ad913fa73dfdabc012c88b4e2b582427c"
   name = "github.com/lab259/go-rscsrv"
   packages = ["."]
@@ -199,7 +191,6 @@
   analyzer-version = 1
   input-imports = [
     "github.com/jamillosantos/macchiato",
-    "github.com/lab259/go-package-boilerplate",
     "github.com/lab259/go-rscsrv",
     "github.com/lib/pq",
     "github.com/onsi/ginkgo",
