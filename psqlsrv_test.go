@@ -20,9 +20,9 @@ func TestPackage(t *testing.T) {
 	if os.Getenv("CI") == "" {
 		macchiato.RunSpecs(t, description)
 	} else {
-		reporterOutputDir := "./.test-results"
+		reporterOutputDir := "./test-results/go-rscsrv-psql"
 		os.MkdirAll(reporterOutputDir, os.ModePerm)
-		junitReporter := reporters.NewJUnitReporter(path.Join(reporterOutputDir, "boilerplate.xml"))
+		junitReporter := reporters.NewJUnitReporter(path.Join(reporterOutputDir, "results.xml"))
 		macchiatoReporter := macchiato.NewReporter()
 		ginkgo.RunSpecsWithCustomReporters(t, description, []ginkgo.Reporter{macchiatoReporter, junitReporter})
 	}
