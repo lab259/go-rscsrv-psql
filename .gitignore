@@ -14,5 +14,5 @@
 vendor
 .cover
 coverage.txt
-.test-results/
+test-results/
 *.coverprofile
