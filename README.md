@@ -7,38 +7,33 @@
 What things you need to setup the project:
 
 - [go](https://golang.org/doc/install)
-- [golang/dep](https://github.com/golang/dep)
 - [ginkgo](http://onsi.github.io/ginkgo/)
 
 ### Environment
 
-For start developing you must create a `GOPATH` structure:
-
-```
-+-- /
-|---- src
-|------ github.com
-|-------- lab259
-|---------- go-rscsrv-psql <- Here is where you will clone this repository.
-```
-
-Use the following command:
+For start developing you must clone the project:
 
 ```bash
-mkdir -p src/github.com/lab259/go-rscsrv-psql && git clone git@github.com:lab259/go-rscsrv-psql.git src/github.com/lab259/go-rscsrv-psql
+git clone git@github.com:lab259/go-rscsrv-psql.git
 ```
 
 Now, the dependencies must be installed.
 
 ```
-cd src/github.com/lab259/go-rscsrv-psql && make dep-ensure
+go mod download
 ```
 
 :wink: Finally, you are done to start developing.
 
 ### Running tests
 
-In the `src/github.com/lab259/go-rscsrv-psql` directory, execute:
+In the root directory, start PostgreSQL (using [`docker-compose`](https://docs.docker.com/compose/install/)):
+
+```bash
+docker-compose up -d
+```
+
+Then execute:
 
 ```bash
 make test
