@@ -3,7 +3,6 @@ package psqlsrv_test
 import (
 	"github.com/lab259/go-rscsrv"
 	. "github.com/lab259/go-rscsrv-psql"
-	"github.com/lab259/http"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
@@ -22,7 +21,7 @@ var _ = Describe("Psql Service", func() {
 		err := service.ApplyConfiguration(map[string]interface{}{
 			"address": "localhost",
 		})
-		Expect(err).To(Equal(http.ErrWrongConfigurationInformed))
+		Expect(err).To(Equal(rscsrv.ErrWrongConfigurationInformed))
 	})
 
 	It("should apply the configuration using a pointer", func() {
