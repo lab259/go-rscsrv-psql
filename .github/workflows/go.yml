@@ -5,8 +5,12 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:alpine
+        ports:
+        - 5432:5432
     steps:
-
     - name: Set up Go 1.12
       uses: actions/setup-go@v1
       with:
@@ -18,9 +22,6 @@ jobs:
 
     - name: Get dependencies
       run: go mod download
-
-    - name: Start the stack
-      run: docker-compose up -d
 
     - name: Test
       run: go run github.com/onsi/ginkgo/ginkgo -r --randomizeAllSpecs --randomizeSuites --failOnPending --cover --trace --race --compilers=2
