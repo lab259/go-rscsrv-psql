@@ -21,7 +21,10 @@ const (
 	SSLModeVerifyFull SSLMode = "verify-full"
 )
 
+const DefaultDriver = "postgres"
+
 type Configuration struct {
+	Driver      string        `yaml:"database"`
 	Database    string        `yaml:"database"`
 	Username    string        `yaml:"username"`
 	Password    string        `yaml:"password"`
@@ -108,8 +111,14 @@ func (srv *PsqlService) ApplyConfiguration(configuration interface{}) error {
 	switch c := configuration.(type) {
 	case Configuration:
 		srv.Configuration = c
+		if c.Driver == "" {
+			srv.Configuration.Driver = DefaultDriver
+		}
 	case *Configuration:
 		srv.Configuration = *c
+		if c.Driver == "" {
+			srv.Configuration.Driver = DefaultDriver
+		}
 	default:
 		return rscsrv.ErrWrongConfigurationInformed
 	}
@@ -131,7 +140,7 @@ func (srv *PsqlService) Start() error {
 		return nil
 	}
 
-	db, err := sql.Open("postgres", srv.Configuration.ConnectionString())
+	db, err := sql.Open(srv.Configuration.Driver, srv.Configuration.ConnectionString())
 	if err != nil {
 		return err
 	}

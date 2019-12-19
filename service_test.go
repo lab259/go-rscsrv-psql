@@ -35,6 +35,7 @@ var _ = Describe("Psql Service", func() {
 			MaxPoolSize: 1,
 		})
 		Expect(err).To(BeNil())
+		Expect(service.Configuration.Driver).To(Equal("postgres"))
 		Expect(service.Configuration.Host).To(Equal("host"))
 		Expect(service.Configuration.Username).To(Equal("user"))
 		Expect(service.Configuration.Password).To(Equal("password"))
@@ -43,9 +44,10 @@ var _ = Describe("Psql Service", func() {
 		Expect(service.Configuration.MaxPoolSize).To(Equal(1))
 	})
 
-	It("should apply the configuration using a pointer", func() {
+	It("should apply the configuration using a struct", func() {
 		var service PsqlService
 		err := service.ApplyConfiguration(Configuration{
+			Driver:      "testdriver",
 			Host:        "host",
 			Username:    "user",
 			Password:    "password",
@@ -54,6 +56,7 @@ var _ = Describe("Psql Service", func() {
 			MaxPoolSize: 1,
 		})
 		Expect(err).To(BeNil())
+		Expect(service.Configuration.Driver).To(Equal("testdriver"))
 		Expect(service.Configuration.Host).To(Equal("host"))
 		Expect(service.Configuration.Username).To(Equal("user"))
 		Expect(service.Configuration.Password).To(Equal("password"))
