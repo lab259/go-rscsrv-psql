@@ -24,7 +24,7 @@ const (
 const DefaultDriver = "postgres"
 
 type Configuration struct {
-	Driver      string        `yaml:"database"`
+	Driver      string        `yaml:"driver"`
 	Database    string        `yaml:"database"`
 	Username    string        `yaml:"username"`
 	Password    string        `yaml:"password"`
