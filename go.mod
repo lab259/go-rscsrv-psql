@@ -11,6 +11,7 @@ require (
 	github.com/mattn/go-isatty v0.0.7 // indirect
 	github.com/onsi/ginkgo v1.8.0
 	github.com/onsi/gomega v1.5.0
+	github.com/pkg/errors v0.8.1
 	golang.org/x/net v0.0.0-20190424112056-4829fb13d2c6 // indirect
 	golang.org/x/sys v0.0.0-20190429094411-2cc0cad0ac78 // indirect
 	golang.org/x/text v0.3.2 // indirect
