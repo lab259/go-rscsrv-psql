@@ -111,16 +111,14 @@ func (srv *PsqlService) ApplyConfiguration(configuration interface{}) error {
 	switch c := configuration.(type) {
 	case Configuration:
 		srv.Configuration = c
-		if c.Driver == "" {
-			srv.Configuration.Driver = DefaultDriver
-		}
 	case *Configuration:
 		srv.Configuration = *c
-		if c.Driver == "" {
-			srv.Configuration.Driver = DefaultDriver
-		}
 	default:
 		return rscsrv.ErrWrongConfigurationInformed
+	}
+
+	if srv.Configuration.Driver == "" {
+		srv.Configuration.Driver = DefaultDriver
 	}
 
 	return nil
