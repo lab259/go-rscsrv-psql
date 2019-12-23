@@ -2,7 +2,6 @@ package psqlsrv
 
 import (
 	"database/sql"
-	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -10,6 +9,7 @@ import (
 
 	rscsrv "github.com/lab259/go-rscsrv"
 	_ "github.com/lib/pq"
+	"github.com/pkg/errors"
 )
 
 type SSLMode string
@@ -140,7 +140,7 @@ func (srv *PsqlService) Start() error {
 
 	db, err := sql.Open(srv.Configuration.Driver, srv.Configuration.ConnectionString())
 	if err != nil {
-		return err
+		return errors.Wrap(err, "could not open connection")
 	}
 
 	if srv.Configuration.MaxPoolSize > 0 {
@@ -148,7 +148,7 @@ func (srv *PsqlService) Start() error {
 	}
 
 	if err := db.Ping(); err != nil {
-		return err
+		return errors.Wrap(err, "could not ping")
 	}
 
 	srv.db = db
